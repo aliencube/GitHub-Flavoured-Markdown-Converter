@@ -7,16 +7,16 @@ using System.Configuration;
 namespace Aliencube.GitHub.Markdown.Tests
 {
     [TestFixture]
-    public class GitHubMarkdownSettingsTest
+    public class GitHubClientSettingsTest
     {
         #region Setup
 
-        private IGitHubMarkdownSettings _settings;
+        private IGitHubClientSettings _settings;
 
         [SetUp]
         public void Init()
         {
-            this._settings = ConfigurationManager.GetSection("gitHubMarkdownSettings") as GitHubMarkdownSettings;
+            this._settings = ConfigurationManager.GetSection("gitHubClientSettings") as GitHubClientSettings;
         }
 
         [TearDown]

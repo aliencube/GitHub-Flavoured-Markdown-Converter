@@ -6,7 +6,7 @@ namespace Aliencube.GitHub.Markdown.Configurations
     /// <summary>
     /// This represents the <c>ConfigurationSection</c> element entity for GitHubMarkdownSettings.
     /// </summary>
-    public class GitHubMarkdownSettings : ConfigurationSection, IGitHubMarkdownSettings
+    public class GitHubClientSettings : ConfigurationSection, IGitHubClientSettings
     {
         /// <summary>
         /// Gets or sets the proxy settings element.
