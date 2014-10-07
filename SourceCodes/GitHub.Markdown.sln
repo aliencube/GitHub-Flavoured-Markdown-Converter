@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00_Documents", "00_Documents", "{1BB2F6D8-2EB6-4993-8355-BE6C4E7F3B8A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{2D86E976-28C8-4596-A638-5AE228CF73A0}"
@@ -27,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2E9EBA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHub.Markdown.Services", "03_Services\GitHub.Markdown.Services\GitHub.Markdown.Services.csproj", "{7C027461-9F72-40AC-A309-938C8E1D0EF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHub.Markdown.Configurations", "01_Configurations\GitHub.Markdown.Configurations\GitHub.Markdown.Configurations.csproj", "{B734B6FA-BF4B-45F0-B41D-B0FC14D4D077}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,13 +41,18 @@ Global
 		{7C027461-9F72-40AC-A309-938C8E1D0EF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C027461-9F72-40AC-A309-938C8E1D0EF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C027461-9F72-40AC-A309-938C8E1D0EF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B734B6FA-BF4B-45F0-B41D-B0FC14D4D077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B734B6FA-BF4B-45F0-B41D-B0FC14D4D077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B734B6FA-BF4B-45F0-B41D-B0FC14D4D077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B734B6FA-BF4B-45F0-B41D-B0FC14D4D077}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2D86E976-28C8-4596-A638-5AE228CF73A0} = {1BB2F6D8-2EB6-4993-8355-BE6C4E7F3B8A}
-		{56B0B1A2-5A11-4021-92BD-F809BE3228FC} = {49E26ECE-EE61-407B-B785-0A22EF793F55}
+		{B734B6FA-BF4B-45F0-B41D-B0FC14D4D077} = {29690E02-B468-4021-BEC4-ADC11C86317D}
 		{7C027461-9F72-40AC-A309-938C8E1D0EF3} = {975D4261-0273-41CA-A15D-53A742E67D20}
+		{56B0B1A2-5A11-4021-92BD-F809BE3228FC} = {49E26ECE-EE61-407B-B785-0A22EF793F55}
 	EndGlobalSection
 EndGlobal

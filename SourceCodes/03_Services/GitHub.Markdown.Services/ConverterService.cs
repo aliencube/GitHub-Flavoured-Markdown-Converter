@@ -11,8 +11,14 @@ namespace Aliencube.GitHub.Markdown.Services
     {
         private readonly IConnection _connection;
 
-        public ConverterService()
+        public ConverterService(IConnection connection)
         {
+            if (connection == null)
+            {
+                throw new ArgumentNullException("connection");
+            }
+
+            this._connection = connection;
         }
 
         public async Task<string> ConvertAsync(string markdown)
