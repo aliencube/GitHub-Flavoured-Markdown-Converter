@@ -33,12 +33,13 @@ namespace Aliencube.GitHub.Markdown.Tests
         #region Tests
 
         [Test]
-        [TestCase(true, "http://proxy:8080", "domain", "username", "password")]
-        public void GetProxySettings_GivenConfig_ReturnProxySettings(bool useProxy, string url, string domain, string username, string password)
+        [TestCase(true, true, "http://proxy:8080", "domain", "username", "password")]
+        public void GetProxySettings_GivenConfig_ReturnProxySettings(bool useProxy, bool useDefaultCredentials, string url, string domain, string username, string password)
         {
             var proxy = this._settings.Proxy;
 
             proxy.UseProxy.Should().Be(useProxy);
+            proxy.UseDefaultCredentials.Should().Be(useDefaultCredentials);
             proxy.Url.Should().Be(url);
             proxy.Domain.Should().Be(domain);
             proxy.Username.Should().Be(username);

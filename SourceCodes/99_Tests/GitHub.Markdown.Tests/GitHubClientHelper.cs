@@ -18,8 +18,10 @@ namespace Aliencube.GitHub.Markdown.Tests
                 var username = settings.Proxy.Username;
                 var password = settings.Proxy.Password;
 
-                var credentials = new NetworkCredential(username, password, domain);
-                var proxy = new WebProxy(url) { Credentials = credentials };
+                var useDefaultCredentials = settings.Proxy.UseDefaultCredentials;
+                var credentials = useDefaultCredentials ? CredentialCache.DefaultNetworkCredentials : new NetworkCredential(username, password, domain);
+                var proxy = new WebProxy(url) { UseDefaultCredentials = useDefaultCredentials, Credentials = credentials };
+
                 httpClient = new HttpClientAdapter(proxy);
             }
             return httpClient;
