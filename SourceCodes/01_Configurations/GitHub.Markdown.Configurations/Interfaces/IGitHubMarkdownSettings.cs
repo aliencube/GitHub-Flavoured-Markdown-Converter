@@ -1,9 +1,11 @@
-﻿namespace Aliencube.GitHub.Markdown.Configurations.Interfaces
+﻿using System;
+
+namespace Aliencube.GitHub.Markdown.Configurations.Interfaces
 {
     /// <summary>
     /// This provides interfaces to the <c>GitHubMarkdownSettings</c> class.
     /// </summary>
-    public interface IGitHubMarkdownSettings
+    public interface IGitHubMarkdownSettings : IDisposable
     {
         /// <summary>
         /// Gets or sets the proxy settings element.

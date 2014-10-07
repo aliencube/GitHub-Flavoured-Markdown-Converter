@@ -75,6 +75,7 @@
     <Compile Include="..\..\..\Documents\Properties\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="GitHubMarkdownSettingsTest.cs" />
     <Compile Include="GitHubClientHelper.cs" />
     <Compile Include="GitHubMarkdownServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,6 +83,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\01_Configurations\GitHub.Markdown.Configurations\GitHub.Markdown.Configurations.csproj">
+      <Project>{b734b6fa-bf4b-45f0-b41d-b0fc14d4d077}</Project>
+      <Name>GitHub.Markdown.Configurations</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
