@@ -16,13 +16,16 @@ namespace Aliencube.GitHub.Markdown.WpfApp
         private readonly IGitHubClientHelper _helper;
         private readonly IConverterService _converter;
 
-        public MainWindow()
+        public MainWindow(
+            IGitHubClientSettings settings,
+            IGitHubClientHelper helper,
+            IConverterService converter)
         {
             InitializeComponent();
 
-            this._settings = ConfigurationManager.GetSection("gitHubClientSettings") as GitHubClientSettings;
-            this._helper = new GitHubClientHelper(this._settings);
-            this._converter = new ConverterService(this._helper);
+            this._settings = settings;
+            this._helper = helper;
+            this._converter = converter;
         }
 
         private async void Convert_Click(object sender, RoutedEventArgs e)
