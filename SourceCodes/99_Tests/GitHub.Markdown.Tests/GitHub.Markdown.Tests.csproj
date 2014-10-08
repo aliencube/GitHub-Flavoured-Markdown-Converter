@@ -76,7 +76,6 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="GitHubClientSettingsTest.cs" />
-    <Compile Include="GitHubClientHelper.cs" />
     <Compile Include="ConverterServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

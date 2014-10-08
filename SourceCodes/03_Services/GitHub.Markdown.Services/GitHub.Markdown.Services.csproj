@@ -34,6 +34,7 @@
       <HintPath>..\..\packages\Octokit.0.4.1\lib\net45\Octokit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml.Linq" />
@@ -47,13 +48,21 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="ConverterService.cs" />
+    <Compile Include="GitHubClientHelper.cs" />
     <Compile Include="GitHubClientWrapper.cs" />
+    <Compile Include="Interfaces\IGitHubClientHelper.cs" />
     <Compile Include="Interfaces\IConverterService.cs" />
     <Compile Include="Interfaces\IGitHubClientWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\01_Configurations\GitHub.Markdown.Configurations\GitHub.Markdown.Configurations.csproj">
+      <Project>{b734b6fa-bf4b-45f0-b41d-b0fc14d4d077}</Project>
+      <Name>GitHub.Markdown.Configurations</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,7 +1,10 @@
-﻿using Aliencube.GitHub.Markdown.Services;
+﻿using Aliencube.GitHub.Markdown.Configurations;
+using Aliencube.GitHub.Markdown.Configurations.Interfaces;
+using Aliencube.GitHub.Markdown.Services;
 using Aliencube.GitHub.Markdown.Services.Interfaces;
 using FluentAssertions;
 using NUnit.Framework;
+using System.Configuration;
 
 namespace Aliencube.GitHub.Markdown.Tests
 {
@@ -10,13 +13,16 @@ namespace Aliencube.GitHub.Markdown.Tests
     {
         #region Setup
 
+        private IGitHubClientSettings _settings;
+        private IGitHubClientHelper _helper;
         private IConverterService _converter;
 
         [SetUp]
         public void Init()
         {
-            var connection = GitHubClientHelper.GetConnection();
-            this._converter = new ConverterService(connection);
+            this._settings = ConfigurationManager.GetSection("gitHubClientSettings") as GitHubClientSettings;
+            this._helper = new Services.GitHubClientHelper(this._settings);
+            this._converter = new ConverterService(this._helper);
         }
 
         [TearDown]
@@ -25,6 +31,16 @@ namespace Aliencube.GitHub.Markdown.Tests
             if (this._converter != null)
             {
                 this._converter.Dispose();
+            }
+
+            if (this._helper != null)
+            {
+                this._helper.Dispose();
+            }
+
+            if (this._settings != null)
+            {
+                this._settings.Dispose();
             }
         }
 

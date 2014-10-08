@@ -1,5 +1,4 @@
 ﻿using Aliencube.GitHub.Markdown.Services.Interfaces;
-using Octokit;
 using System;
 using System.Threading.Tasks;
 
@@ -10,20 +9,20 @@ namespace Aliencube.GitHub.Markdown.Services
     /// </summary>
     public class ConverterService : IConverterService
     {
-        private readonly IConnection _connection;
+        private readonly IGitHubClientHelper _helper;
 
         /// <summary>
         /// Initialises a new instance of the <c>ConverterService</c> class.
         /// </summary>
-        /// <param name="connection"><c>Connection</c> instance.</param>
-        public ConverterService(IConnection connection)
+        /// <param name="helper"><c>GitHubClientHelper</c> instance.</param>
+        public ConverterService(IGitHubClientHelper helper)
         {
-            if (connection == null)
+            if (helper == null)
             {
-                throw new ArgumentNullException("connection");
+                throw new ArgumentNullException("helper");
             }
 
-            this._connection = connection;
+            this._helper = helper;
         }
 
         /// <summary>
@@ -39,7 +38,7 @@ namespace Aliencube.GitHub.Markdown.Services
                 return html;
             }
 
-            using (var client = new GitHubClientWrapper(this._connection))
+            using (var client = new GitHubClientWrapper(this._helper.GetConnection()))
             {
                 html = await client.Miscellaneous.RenderRawMarkdown(markdown);
             }
