@@ -12,23 +12,17 @@ namespace Aliencube.GitHub.Markdown.WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly IGitHubClientSettings _settings;
-        private readonly IGitHubClientHelper _helper;
-        private readonly IConverterService _converter;
-
         public MainWindow()
         {
             InitializeComponent();
-
-            this._settings = ConfigurationManager.GetSection("gitHubClientSettings") as GitHubClientSettings;
-            this._helper = new GitHubClientHelper(this._settings);
-            this._converter = new ConverterService(this._helper);
         }
+
+        public IConverterService Converter { get; set; }
 
         private async void Convert_Click(object sender, RoutedEventArgs e)
         {
             var input = this.Input.Text;
-            var output = await this._converter.ConvertAsync(input);
+            var output = await this.Converter.ConvertAsync(input);
             this.Output.NavigateToString(output);
         }
     }
