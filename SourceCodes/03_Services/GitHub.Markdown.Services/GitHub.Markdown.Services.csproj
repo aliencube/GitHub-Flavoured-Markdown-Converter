@@ -48,6 +48,7 @@
     </Compile>
     <Compile Include="ConverterService.cs" />
     <Compile Include="GitHubClientWrapper.cs" />
+    <Compile Include="Interfaces\IConverterService.cs" />
     <Compile Include="Interfaces\IGitHubClientWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

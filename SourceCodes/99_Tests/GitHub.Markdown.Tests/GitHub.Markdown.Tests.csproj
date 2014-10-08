@@ -77,7 +77,7 @@
     </Compile>
     <Compile Include="GitHubClientSettingsTest.cs" />
     <Compile Include="GitHubClientHelper.cs" />
-    <Compile Include="GitHubMarkdownServiceTest.cs" />
+    <Compile Include="ConverterServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +88,10 @@
     <ProjectReference Include="..\..\01_Configurations\GitHub.Markdown.Configurations\GitHub.Markdown.Configurations.csproj">
       <Project>{b734b6fa-bf4b-45f0-b41d-b0fc14d4d077}</Project>
       <Name>GitHub.Markdown.Configurations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\03_Services\GitHub.Markdown.Services\GitHub.Markdown.Services.csproj">
+      <Project>{7c027461-9f72-40ac-a309-938c8e1d0ef3}</Project>
+      <Name>GitHub.Markdown.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

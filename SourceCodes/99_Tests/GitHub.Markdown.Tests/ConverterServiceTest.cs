@@ -1,26 +1,31 @@
-﻿using FluentAssertions;
+﻿using Aliencube.GitHub.Markdown.Services;
+using Aliencube.GitHub.Markdown.Services.Interfaces;
+using FluentAssertions;
 using NUnit.Framework;
-using Octokit;
 
 namespace Aliencube.GitHub.Markdown.Tests
 {
     [TestFixture]
-    public class GitHubMarkdownServiceTest
+    public class ConverterServiceTest
     {
         #region Setup
 
-        private IGitHubClient _github;
+        private IConverterService _converter;
 
         [SetUp]
         public void Init()
         {
             var connection = GitHubClientHelper.GetConnection();
-            this._github = new GitHubClient(connection);
+            this._converter = new ConverterService(connection);
         }
 
         [TearDown]
         public void Dispose()
         {
+            if (this._converter != null)
+            {
+                this._converter.Dispose();
+            }
         }
 
         #endregion Setup
@@ -31,7 +36,7 @@ namespace Aliencube.GitHub.Markdown.Tests
         [TestCase("**Hello World**", "<p><strong>Hello World</strong></p>")]
         public async void GetHtml_GivenMarkdown_ReturnHtml_Async(string markdown, string expected)
         {
-            var result = await this._github.Miscellaneous.RenderRawMarkdown(markdown);
+            var result = await this._converter.ConvertAsync(markdown);
 
             result.Should().Be(expected);
         }

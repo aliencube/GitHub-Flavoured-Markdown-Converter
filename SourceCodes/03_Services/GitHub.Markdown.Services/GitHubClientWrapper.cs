@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Aliencube.GitHub.Markdown.Services.Interfaces;
+﻿using Aliencube.GitHub.Markdown.Services.Interfaces;
 using Octokit;
+using System;
 
 namespace Aliencube.GitHub.Markdown.Services
 {
+    /// <summary>
+    /// This represents a wrapper entity for <c>GitHubClient</c> to be disposable.
+    /// </summary>
     public class GitHubClientWrapper : GitHubClient, IGitHubClientWrapper
     {
-
         public GitHubClientWrapper(IConnection connection)
             : base(connection)
         {
@@ -36,6 +34,10 @@ namespace Aliencube.GitHub.Markdown.Services
         {
         }
 
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing,
+        /// or resetting unmanaged resources.
+        /// </summary>
         public void Dispose()
         {
         }

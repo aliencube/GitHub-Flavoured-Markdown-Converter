@@ -1,16 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Aliencube.GitHub.Markdown.Services.Interfaces;
 using Octokit;
+using System;
+using System.Threading.Tasks;
 
 namespace Aliencube.GitHub.Markdown.Services
 {
-    public class ConverterService
+    /// <summary>
+    /// This represents the converter service entity.
+    /// </summary>
+    public class ConverterService : IConverterService
     {
         private readonly IConnection _connection;
 
+        /// <summary>
+        /// Initialises a new instance of the <c>ConverterService</c> class.
+        /// </summary>
+        /// <param name="connection"><c>Connection</c> instance.</param>
         public ConverterService(IConnection connection)
         {
             if (connection == null)
@@ -21,6 +26,11 @@ namespace Aliencube.GitHub.Markdown.Services
             this._connection = connection;
         }
 
+        /// <summary>
+        /// Converts the markdown text to HTML.
+        /// </summary>
+        /// <param name="markdown">Markdown text.</param>
+        /// <returns>Returns the HTML text.</returns>
         public async Task<string> ConvertAsync(string markdown)
         {
             var html = String.Empty;
@@ -34,6 +44,14 @@ namespace Aliencube.GitHub.Markdown.Services
                 html = await client.Miscellaneous.RenderRawMarkdown(markdown);
             }
             return html;
+        }
+
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing,
+        /// or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose()
+        {
         }
     }
 }
