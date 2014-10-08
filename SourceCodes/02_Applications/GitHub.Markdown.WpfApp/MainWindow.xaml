@@ -7,14 +7,22 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         
-        <StackPanel Grid.Column="0">
+        <StackPanel Grid.Column="0" Grid.Row="0">
             <Button x:Name="Convert" Content="Convert" Click="Convert_Click" />
-            <TextBox x:Name="Input" />
         </StackPanel>
-        
-        <StackPanel Grid.Column="1">
-            <TextBox x:Name="Output" />
+
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <TextBox x:Name="Input" Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}}, Path=ActualHeight}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
+            <WebBrowser x:Name="Output" Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}}, Path=ActualHeight}" />
         </StackPanel>
     </Grid>
 </Window>
