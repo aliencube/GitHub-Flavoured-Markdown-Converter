@@ -15,6 +15,8 @@
         
         <StackPanel Grid.Column="0" Grid.Row="0">
             <Button x:Name="Convert" Content="Convert" Click="Convert_Click" />
+            <TextBox x:Name="InputWordCount" Text="{Binding Path=Input.Length, Mode=OneWay, StringFormat=Input Characters:{0}}" HorizontalContentAlignment="Stretch" />
+			<TextBox x:Name="OutputWordCount" Text="{Binding Path=MarkdownOutput.Length, Mode=OneWay, StringFormat=Markdownized Characters:{0}}" HorizontalContentAlignment="Stretch" />
         </StackPanel>
 
         <StackPanel Grid.Column="0" Grid.Row="1">
