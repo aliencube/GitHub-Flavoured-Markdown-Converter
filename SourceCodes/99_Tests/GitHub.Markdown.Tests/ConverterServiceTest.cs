@@ -20,7 +20,7 @@ namespace Aliencube.GitHub.Markdown.Tests
         [SetUp]
         public void Init()
         {
-            this._settings = ConfigurationManager.GetSection("gitHubClientSettings") as GitHubClientSettings;
+            this._settings = GitHubClientSettings.CreateInstance();
             this._helper = new Services.GitHubClientHelper(this._settings);
             this._converter = new ConverterService(this._helper);
         }

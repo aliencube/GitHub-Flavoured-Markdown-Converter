@@ -29,6 +29,16 @@ namespace Aliencube.GitHub.Markdown.Configurations
         }
 
         /// <summary>
+        /// Creates the <c>GitHubClientSettings</c> instance.
+        /// </summary>
+        /// <returns>Returns the <c>GitHubClientSettings</c> instance.</returns>
+        public static GitHubClientSettings CreateInstance()
+        {
+            var settings = ConfigurationManager.GetSection("gitHubClientSettings") as GitHubClientSettings;
+            return settings;
+        }
+
+        /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing,
         /// or resetting unmanaged resources.
         /// </summary>

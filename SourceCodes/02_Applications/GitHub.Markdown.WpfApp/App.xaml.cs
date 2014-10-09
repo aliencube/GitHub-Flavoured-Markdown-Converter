@@ -31,7 +31,7 @@ namespace Aliencube.GitHub.Markdown.WpfApp
         private void App_Startup(object sender, StartupEventArgs e)
         {
             var builder = new ContainerBuilder();
-            builder.Register(p => ConfigurationManager.GetSection("gitHubClientSettings") as GitHubClientSettings).As<IGitHubClientSettings>().InstancePerLifetimeScope();
+            builder.Register(p => GitHubClientSettings.CreateInstance()).As<IGitHubClientSettings>().InstancePerLifetimeScope();
             builder.RegisterType<GitHubClientHelper>().As<IGitHubClientHelper>().InstancePerLifetimeScope();
             builder.RegisterType<ConverterService>().As<IConverterService>().InstancePerLifetimeScope();
 
