@@ -13,18 +13,21 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         
-        <StackPanel Grid.Column="0" Grid.Row="0">
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0">
             <Button x:Name="Convert" Content="Convert" Click="Convert_Click" />
-            <TextBox x:Name="InputWordCount" Text="{Binding Path=Input.Length, Mode=OneWay, StringFormat=Input Characters:{0}}" HorizontalContentAlignment="Stretch" />
-			<TextBox x:Name="OutputWordCount" Text="{Binding Path=MarkdownOutput.Length, Mode=OneWay, StringFormat=Markdownized Characters:{0}}" HorizontalContentAlignment="Stretch" />
         </StackPanel>
 
         <StackPanel Grid.Column="0" Grid.Row="1">
-            <TextBox x:Name="Input" Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}}, Path=ActualHeight}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" />
+            <TextBox x:Name="MarkdownInput"
+                     Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}}, Path=ActualHeight}"
+                     HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                     VerticalScrollBarVisibility="Auto" AcceptsReturn="True"
+                     Text="{Binding Path=MarkdownInput, Mode=OneWayToSource}" />
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
-            <WebBrowser x:Name="Output" Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}}, Path=ActualHeight}" />
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <WebBrowser x:Name="HtmlOutput"
+                        Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}}, Path=ActualHeight}" />
         </StackPanel>
     </Grid>
 </Window>

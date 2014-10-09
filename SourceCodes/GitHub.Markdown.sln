@@ -1,6 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2E9EBADF-0EAF-4C42-B6C3-116FDE819FEB}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00_Documents", "00_Documents", "{1BB2F6D8-2EB6-4993-8355-BE6C4E7F3B8A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{2D86E976-28C8-4596-A638-5AE228CF73A0}"
@@ -14,20 +19,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02_Applications", "02_Appli
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03_Services", "03_Services", "{975D4261-0273-41CA-A15D-53A742E67D20}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04_ViewModels", "04_ViewModels", "{FE2D148D-79B0-4ED3-ADF6-4A297BF821FF}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99_Tests", "99_Tests", "{49E26ECE-EE61-407B-B785-0A22EF793F55}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHub.Markdown.Tests", "99_Tests\GitHub.Markdown.Tests\GitHub.Markdown.Tests.csproj", "{56B0B1A2-5A11-4021-92BD-F809BE3228FC}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2E9EBADF-0EAF-4C42-B6C3-116FDE819FEB}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\packages.config = .nuget\packages.config
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHub.Markdown.Services", "03_Services\GitHub.Markdown.Services\GitHub.Markdown.Services.csproj", "{7C027461-9F72-40AC-A309-938C8E1D0EF3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHub.Markdown.Configurations", "01_Configurations\GitHub.Markdown.Configurations\GitHub.Markdown.Configurations.csproj", "{B734B6FA-BF4B-45F0-B41D-B0FC14D4D077}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHub.Markdown.WpfApp", "02_Applications\GitHub.Markdown.WpfApp\GitHub.Markdown.WpfApp.csproj", "{6A0E673F-CBC2-4A3C-9636-95B94108F297}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHub.Markdown.Services", "03_Services\GitHub.Markdown.Services\GitHub.Markdown.Services.csproj", "{7C027461-9F72-40AC-A309-938C8E1D0EF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHub.Markdown.ViewModels", "04_ViewModels\GitHub.Markdown.ViewModels\GitHub.Markdown.ViewModels.csproj", "{98033894-7E34-4ED2-80FE-61AB7A41C519}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHub.Markdown.Tests", "99_Tests\GitHub.Markdown.Tests\GitHub.Markdown.Tests.csproj", "{56B0B1A2-5A11-4021-92BD-F809BE3228FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,14 +39,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{56B0B1A2-5A11-4021-92BD-F809BE3228FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{56B0B1A2-5A11-4021-92BD-F809BE3228FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{56B0B1A2-5A11-4021-92BD-F809BE3228FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{56B0B1A2-5A11-4021-92BD-F809BE3228FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C027461-9F72-40AC-A309-938C8E1D0EF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C027461-9F72-40AC-A309-938C8E1D0EF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C027461-9F72-40AC-A309-938C8E1D0EF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C027461-9F72-40AC-A309-938C8E1D0EF3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B734B6FA-BF4B-45F0-B41D-B0FC14D4D077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B734B6FA-BF4B-45F0-B41D-B0FC14D4D077}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B734B6FA-BF4B-45F0-B41D-B0FC14D4D077}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,6 +47,18 @@ Global
 		{6A0E673F-CBC2-4A3C-9636-95B94108F297}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A0E673F-CBC2-4A3C-9636-95B94108F297}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A0E673F-CBC2-4A3C-9636-95B94108F297}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C027461-9F72-40AC-A309-938C8E1D0EF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C027461-9F72-40AC-A309-938C8E1D0EF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C027461-9F72-40AC-A309-938C8E1D0EF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C027461-9F72-40AC-A309-938C8E1D0EF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98033894-7E34-4ED2-80FE-61AB7A41C519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98033894-7E34-4ED2-80FE-61AB7A41C519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98033894-7E34-4ED2-80FE-61AB7A41C519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98033894-7E34-4ED2-80FE-61AB7A41C519}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56B0B1A2-5A11-4021-92BD-F809BE3228FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56B0B1A2-5A11-4021-92BD-F809BE3228FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56B0B1A2-5A11-4021-92BD-F809BE3228FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56B0B1A2-5A11-4021-92BD-F809BE3228FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +68,7 @@ Global
 		{B734B6FA-BF4B-45F0-B41D-B0FC14D4D077} = {29690E02-B468-4021-BEC4-ADC11C86317D}
 		{6A0E673F-CBC2-4A3C-9636-95B94108F297} = {6A7AD8E8-4573-4664-9913-B2D6D5EFD82F}
 		{7C027461-9F72-40AC-A309-938C8E1D0EF3} = {975D4261-0273-41CA-A15D-53A742E67D20}
+		{98033894-7E34-4ED2-80FE-61AB7A41C519} = {FE2D148D-79B0-4ED3-ADF6-4A297BF821FF}
 		{56B0B1A2-5A11-4021-92BD-F809BE3228FC} = {49E26ECE-EE61-407B-B785-0A22EF793F55}
 	EndGlobalSection
 EndGlobal

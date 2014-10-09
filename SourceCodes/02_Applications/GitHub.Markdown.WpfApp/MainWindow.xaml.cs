@@ -1,8 +1,6 @@
-﻿using Aliencube.GitHub.Markdown.Configurations;
-using Aliencube.GitHub.Markdown.Configurations.Interfaces;
-using Aliencube.GitHub.Markdown.Services;
-using Aliencube.GitHub.Markdown.Services.Interfaces;
-using System.Configuration;
+﻿using Aliencube.GitHub.Markdown.Services.Interfaces;
+using Aliencube.GitHub.Markdown.ViewModels;
+using System;
 using System.Windows;
 
 namespace Aliencube.GitHub.Markdown.WpfApp
@@ -12,31 +10,37 @@ namespace Aliencube.GitHub.Markdown.WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly IGitHubClientSettings _settings;
-        private readonly IGitHubClientHelper _helper;
         private readonly IConverterService _converter;
-	    private readonly MainViewModel _viewModel;
+        private readonly MainWindowViewModel _vm;
 
-        public MainWindow()
+        /// <summary>
+        /// Initialises a new instance of the <c>MainWindow</c> class.
+        /// </summary>
+        /// <param name="converter"><c>ConverterService</c> instance.</param>
+        public MainWindow(IConverterService converter)
         {
             InitializeComponent();
 
-            this._settings = ConfigurationManager.GetSection("gitHubClientSettings") as GitHubClientSettings;
-            this._helper = new GitHubClientHelper(this._settings);
-            this._converter = new ConverterService(this._helper);
-			this._viewModel = new MainViewModel(_converter);
+            if (converter == null)
+            {
+                throw new ArgumentNullException("converter");
+            }
+            this._converter = converter;
 
-	        // YoungjaeKim (2014-10-08 18:05:15): Refactor-at-will.
-			// The recommendation in WPF world is to minimize code-behind as possible, so that 'Binding' syntax could be galore in XAML file in order to communicate between ViewModel and XAML.
-			this.DataContext = _viewModel; 
+            this._vm = new MainWindowViewModel();
+
+            this.DataContext = this._vm;
         }
 
+        /// <summary>
+        /// Raises the Click event on clicking the "Convert" button.
+        /// </summary>
+        /// <param name="sender">Object that raises the event.</param>
+        /// <param name="e">Event argument.</param>
         private async void Convert_Click(object sender, RoutedEventArgs e)
         {
-			// YoungjaeKim (2014-10-08 18:28:47): You can see the `Binding` syntax in `InputWordCount` and `OutputWordCount` TextBox control.
-			// They just show examples of DataContext Binding that MainViewModel Properties have coupled with each XAML control.
-			var output = await _viewModel.ConvertToMarkdown(this.Input.Text); 
-			this.Output.NavigateToString(output);
+            this._vm.HtmlOutput = await this._converter.ConvertAsync(this._vm.MarkdownInput);
+            this.HtmlOutput.NavigateToString(this._vm.HtmlOutput);
         }
     }
 }

@@ -9,7 +9,7 @@
 // ReSharper disable MemberCanBeProtected.Global
 // ReSharper disable InconsistentNaming
 
-namespace Aliencube.GitHub.Markdown.WpfApp.Annotations
+namespace Aliencube.GitHub.Markdown.ViewModels.Annotations
 {
   /// <summary>
   /// Indicates that the value of the marked element could be <c>null</c> sometimes,
